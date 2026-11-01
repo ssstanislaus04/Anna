@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anya's Hello Kitty Fit & Recomp Plan</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Pacifico & Nunito for Kawaii look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kitty: {
+              50: '#fff5f7',
+              100: '#ffe4ea',
+              200: '#fecdd7',
+              300: '#fda4b8',
+              400: '#fb7194',
+              500: '#f43f6e',
+              600: '#e11d59',
+              dark: '#4a1525',
+              pastel: '#fff0f3',
+              accent: '#ff2d55',
+              gold: '#ffd166',
+              mint: '#b7efc5'
+            }
+          },
+          fontFamily: {
+            kitty: ['Pacifico', 'cursive'],
+            cute: ['Comfortaa', 'sans-serif'],
+            body: ['Nunito', 'sans-serif']
+          },
+          boxShadow: {
+            'kawaii': '0 8px 25px -4px rgba(244, 63, 110, 0.25), 0 4px 10px -2px rgba(244, 63, 110, 0.15)',
+            'kawaii-lg': '0 15px 35px -5px rgba(244, 63, 110, 0.35)',
+            'inner-soft': 'inset 0 2px 6px rgba(244, 63, 110, 0.1)'
+          },
+          animation: {
+            'float': 'float 3.5s ease-in-out infinite',
+            'bounce-soft': 'bounceSoft 2s infinite',
+            'pulse-glow': 'pulseGlow 2.5s infinite',
+            'spin-slow': 'spin 12s linear infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-10px) rotate(2deg)' },
+            },
+            bounceSoft: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: 1, filter: 'drop-shadow(0 0 10px rgba(251, 113, 148, 0.6))' },
+              '50%': { opacity: 0.85, filter: 'drop-shadow(0 0 20px rgba(251, 113, 148, 0.9))' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: radial-gradient(circle at 10% 20%, #fff0f3 0%, #ffe5ec 50%, #fed2db 100%);
+      background-attachment: fixed;
+    }
+
+    /* Polka dot overlay */
+    .polka-bg {
+      background-image: radial-gradient(#fb7194 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      background-position: 0 0;
+      opacity: 0.25;
+    }
+
+    /* Custom Cute Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #ffe4ea;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f43f6e;
+      border-radius: 9999px;
+      border: 2px solid #ffe4ea;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e11d59;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      border: 2.5px solid #ffccd7;
+    }
+
+    .bow-icon {
+      filter: drop-shadow(0 4px 6px rgba(244, 63, 110, 0.3));
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-700 relative overflow-x-hidden selection:bg-kitty-300 selection:text-kitty-dark">
+
+  <!-- Polka dot pattern in background -->
+  <div class="fixed inset-0 polka-bg pointer-events-none z-0"></div>
+
+  <!-- Cute Floating Bubbles/Bows Background Elements -->
+  <div class="fixed top-12 left-6 text-kitty-300 opacity-40 animate-float pointer-events-none select-none text-4xl">🎀</div>
+  <div class="fixed top-1/3 right-8 text-kitty-300 opacity-40 animate-float pointer-events-none select-none text-5xl" style="animation-delay: 1.2s;">✨</div>
+  <div class="fixed bottom-24 left-10 text-kitty-300 opacity-35 animate-float pointer-events-none select-none text-4xl" style="animation-delay: 2s;">💖</div>
+  <div class="fixed bottom-10 right-12 text-kitty-300 opacity-40 animate-float pointer-events-none select-none text-5xl" style="animation-delay: 0.7s;">🍓</div>
+
+  <!-- Header / Nav -->
+  <header class="relative z-10 sticky top-0 bg-white/80 backdrop-blur-md border-b-2 border-kitty-200 shadow-sm transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- SVG Hello Kitty Bow -->
+        <div class="w-12 h-10 flex items-center justify-center animate-bounce-soft cursor-pointer" onclick="celebrateKitty()">
+          <svg viewBox="0 0 100 80" class="w-12 h-10 bow-icon">
+            <!-- Central knot -->
+            <ellipse cx="50" cy="40" rx="14" ry="12" fill="#ff2d55" />
+            <ellipse cx="50" cy="40" rx="11" ry="9" fill="#ff4d73" />
+            <!-- Left loop -->
+            <path d="M 40 38 C 20 18, 5 25, 12 48 C 16 64, 34 50, 42 44 Z" fill="#ff2d55" />
+            <ellipse cx="28" cy="40" rx="6" ry="9" fill="#ff6b8b" transform="rotate(-15 28 40)"/>
+            <!-- Right loop -->
+            <path d="M 60 38 C 80 18, 95 25, 88 48 C 84 64, 66 50, 58 44 Z" fill="#ff2d55" />
+            <ellipse cx="72" cy="40" rx="6" ry="9" fill="#ff6b8b" transform="rotate(15 72 40)"/>
+            <!-- Ribbons -->
+            <path d="M 45 46 Q 30 65 24 75 Q 35 73 48 50 Z" fill="#e11d59"/>
+            <path d="M 55 46 Q 70 65 76 75 Q 65 73 52 50 Z" fill="#e11d59"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-kitty text-2xl sm:text-3xl text-kitty-600 tracking-wide flex items-center gap-2">
+            Anya's Recomp <span class="text-xs font-cute bg-kitty-100 text-kitty-600 px-2.5 py-0.5 rounded-full border border-kitty-300">Edition</span>
+          </h1>
+          <p class="text-xs text-pink-500 font-semibold hidden sm:block">Сушка отёков + Набор рельефных мышц 🎀</p>
+        </div>
+      </div>
+
+      <!-- Header Mini Status -->
+      <div class="flex items-center gap-2 bg-pink-100/80 px-3.5 py-1.5 rounded-full border border-kitty-200 text-xs font-bold text-kitty-600">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>План активен ✨</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+    <!-- HERO SECTION: Anya's Passport & Target Recomp Goal -->
+    <section class="glass-card rounded-3xl p-6 sm:p-8 shadow-kawaii relative overflow-hidden">
+      <!-- Kitty Face Decorative Watermark -->
+      <div class="absolute -right-10 -bottom-10 w-56 h-56 opacity-10 pointer-events-none">
+        <svg viewBox="0 0 200 200" fill="#f43f6e">
+          <ellipse cx="100" cy="110" rx="80" ry="65" />
+          <polygon points="40,65 30,20 75,50" />
+          <polygon points="160,65 170,20 125,50" />
+        </svg>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Profile Cute Badge with Anya's Real Photo -->
+        <div class="lg:col-span-5 flex flex-col sm:flex-row items-center gap-5 bg-gradient-to-br from-pink-50 to-rose-100 p-5 rounded-2xl border-2 border-kitty-200">
+          <div class="relative">
+            <!-- Avatar Frame with Original Hello Kitty Icon -->
+            <div class="w-28 h-28 rounded-full border-4 border-kitty-400 p-1.5 bg-white shadow-md flex items-center justify-center relative overflow-hidden group">
+              <!-- Canonical Hello Kitty Face Vector -->
+              <svg viewBox="0 0 120 100" class="w-full h-full object-contain filter drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
+                <!-- Ears -->
+                <path d="M 28 38 L 18 10 C 26 12, 38 20, 42 26 Z" fill="#ffffff" stroke="#231f20" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M 92 38 L 102 10 C 94 12, 82 20, 78 26 Z" fill="#ffffff" stroke="#231f20" stroke-width="3" stroke-linejoin="round"/>
+                
+                <!-- Head -->
+                <ellipse cx="60" cy="55" rx="46" ry="36" fill="#ffffff" stroke="#231f20" stroke-width="3"/>
+                
+                <!-- Eyes -->
+                <ellipse cx="40" cy="57" rx="3.5" ry="5.5" fill="#231f20"/>
+                <ellipse cx="80" cy="57" rx="3.5" ry="5.5" fill="#231f20"/>
+                
+                <!-- Yellow Nose -->
+                <ellipse cx="60" cy="65" rx="4.5" ry="3.5" fill="#ffd100" stroke="#231f20" stroke-width="1.5"/>
+                
+                <!-- Whiskers Left -->
+                <line x1="12" y1="52" x2="30" y2="55" stroke="#231f20" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="62" x2="28" y2="62" stroke="#231f20" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="14" y1="72" x2="31" y2="69" stroke="#231f20" stroke-width="2.5" stroke-linecap="round"/>
+                
+                <!-- Whiskers Right -->
+                <line x1="108" y1="52" x2="90" y2="55" stroke="#231f20" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="110" y1="62" x2="92" y2="62" stroke="#231f20" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="106" y1="72" x2="89" y2="69" stroke="#231f20" stroke-width="2.5" stroke-linecap="round"/>
+                
+                <!-- Iconic Red Ribbon / Bow on Right Ear -->
+                <g transform="translate(18, -6)">
+                  <!-- Left loop -->
+                  <ellipse cx="66" cy="30" rx="9" ry="7" fill="#ff2d55" stroke="#231f20" stroke-width="2" transform="rotate(-25 66 30)"/>
+                  <ellipse cx="66" cy="30" rx="4" ry="3" fill="#ff6b8b" opacity="0.6"/>
+                  <!-- Right loop -->
+                  <ellipse cx="86" cy="22" rx="9" ry="7" fill="#ff2d55" stroke="#231f20" stroke-width="2" transform="rotate(25 86 22)"/>
+                  <ellipse cx="86" cy="22" rx="4" ry="3" fill="#ff6b8b" opacity="0.6"/>
+                  <!-- Knot -->
+                  <circle cx="76" cy="26" r="6" fill="#ff2d55" stroke="#231f20" stroke-width="2"/>
+                  <circle cx="75" cy="25" r="3" fill="#ff6b8b" opacity="0.7"/>
+                </g>
+              </svg>
+
+              <!-- Cute overlay bow tag -->
+              <span class="absolute -top-1 -right-1 text-2xl z-10 select-none">✨</span>
+            </div>
+            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-kitty-500 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap shadow">
+              Аня • 23 Года
+            </div>
+          </div>
+          <div class="space-y-1.5 text-center sm:text-left">
+            <h2 class="text-2xl font-black text-slate-800 flex items-center justify-center sm:justify-start gap-2">
+              Анечка <span class="text-kitty-500 font-kitty text-base">Recomp Plan</span>
+            </h2>
+            <div class="flex flex-wrap justify-center sm:justify-start gap-2 text-xs font-semibold">
+              <span class="bg-white/80 border border-kitty-200 text-kitty-600 px-2.5 py-1 rounded-xl">📏 Рост: 180 см</span>
+              <span class="bg-white/80 border border-kitty-200 text-kitty-600 px-2.5 py-1 rounded-xl">⚖️ Вес: 70 кг</span>
+              <span class="bg-white/80 border border-kitty-200 text-kitty-600 px-2.5 py-1 rounded-xl">🕒 График: 3 / 3 (12 ч)</span>
+              <span class="bg-white/80 border border-kitty-200 text-kitty-600 px-2.5 py-1 rounded-xl">💪 3 тренировки в нед</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recomp Diagnosis & Key Mission (Trainer & Friend Voice) -->
+        <div class="lg:col-span-7 space-y-3">
+          <div class="inline-flex items-center gap-2 bg-kitty-100 text-kitty-600 px-3.5 py-1 rounded-full text-xs font-bold border border-kitty-200">
+            <i data-lucide="sparkles" class="w-4 h-4"></i> Персональный план от твоего тренера и друга
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-800 leading-snug">
+            Ань, как твой тренер я собрал эту стратегию: убираем <span class="text-kitty-500 underline decoration-wavy decoration-kitty-300">«залитость»</span> и растим плотные мышцы ✨
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            У тебя отличная база и генетика (180 см и длинные рычаги), но из-за 12-часовой сидячей работы ноги задерживают воду, а мышцам просто не хватало целевого белка и грамотного режима. Я рассчитал для тебя чистую <strong>боди-рекомпозицию</strong>: никакого голодания, держим оптимум белка, сливаем лишнюю воду за счет калия и растем в твои выходные!
+          </p>
+          <div class="flex flex-wrap gap-2 pt-1 text-xs">
+            <span class="bg-rose-50 text-rose-700 font-bold px-3 py-1 rounded-lg border border-rose-200 flex items-center gap-1.5">
+              <span>💧</span> Слив лишней воды & калий
+            </span>
+            <span class="bg-rose-50 text-rose-700 font-bold px-3 py-1 rounded-lg border border-rose-200 flex items-center gap-1.5">
+              <span>🍗</span> Белок: 135–140г (строим мышцы)
+            </span>
+            <span class="bg-rose-50 text-rose-700 font-bold px-3 py-1 rounded-lg border border-rose-200 flex items-center gap-1.5">
+              <span>💊</span> Витаминный стек для тонуса
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMINENT INTERACTIVE DAY-SWITCHER (MOVED LOWER FOR PERFECT VISIBILITY) -->
+    <section class="glass-card rounded-3xl p-4 sm:p-5 shadow-kawaii border-2 border-kitty-300 bg-white/95">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-2 text-kitty-600 font-kitty text-xl">
+            <span>🎀</span> Выбери свой сегодняшний день:
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5">КБЖУ и меню автоматически перестроятся под твою активность!</p>
+        </div>
+
+        <!-- Big, easily tapable buttons -->
+        <div class="grid grid-cols-3 gap-2 w-full md:w-auto p-1.5 bg-pink-50 rounded-2xl border-2 border-kitty-200">
+          <button id="btn-work" onclick="switchDayType('work')" class="px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-extrabold rounded-xl transition-all duration-300 shadow-md bg-kitty-500 text-white flex items-center justify-center gap-2 transform active:scale-95">
+            <span class="text-base">💼</span>
+            <span>12ч Смена</span>
+          </button>
+          <button id="btn-train" onclick="switchDayType('train')" class="px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-extrabold rounded-xl transition-all duration-300 text-kitty-600 hover:bg-white/80 flex items-center justify-center gap-2 transform active:scale-95">
+            <span class="text-base">🏋️‍♀️</span>
+            <span>Тренировка</span>
+          </button>
+          <button id="btn-rest" onclick="switchDayType('rest')" class="px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-extrabold rounded-xl transition-all duration-300 text-kitty-600 hover:bg-white/80 flex items-center justify-center gap-2 transform active:scale-95">
+            <span class="text-base">🍰</span>
+            <span>Выходной</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DASHBOARD: Calorie & Macro Target Split -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-kitty text-2xl text-kitty-600 flex items-center gap-2">
+          <span>🎀</span> КБЖУ под твои дни
+        </h3>
+        <span class="text-xs font-bold text-pink-500 bg-pink-100/90 px-3 py-1 rounded-full border border-pink-200">
+          Углеводное чередование
+        </span>
+      </div>
+
+      <!-- Macro Cards dynamic by day -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="macros-container">
+        <!-- Will be dynamically filled via JS based on selected tab -->
+      </div>
+    </section>
+
+    <!-- SCHEDULE MATRIX: 3/3 Work & Gym Integration -->
+    <section class="glass-card rounded-3xl p-6 sm:p-7 shadow-kawaii space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-kitty-100 pb-4">
+        <div>
+          <h3 class="text-xl font-black text-slate-800 flex items-center gap-2 font-cute">
+            <span>🗓️</span> Твой график 3/3: как мы распределяем силы
+          </h3>
+          <p class="text-xs text-slate-500 mt-0.5">Мои главные рекомендации под твои 12-часовые смены</p>
+        </div>
+        <div class="text-xs font-bold bg-kitty-100 text-kitty-600 px-3 py-1.5 rounded-xl border border-kitty-200 self-start sm:self-auto">
+          Мой совет тебе 🎀
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div class="bg-white/80 p-4 rounded-2xl border-2 border-pink-100 shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-kitty-600 font-black">
+            <span class="p-1.5 bg-kitty-100 rounded-lg">💼</span> 3 Дня на работе (12 часов)
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Пожалуйста, <strong>не пытайся упахиваться в зале после 12-часовой смены</strong>! От этого подскакивает гормон стресса кортизол, тело в панике консервирует воду и заливает ещё сильнее.
+          </p>
+          <ul class="text-xs space-y-1 text-slate-700 font-medium">
+            <li class="flex items-center gap-1.5 text-kitty-600">✔ Каждый час встань, потянись, сделай пару шагов (чтобы кровь не стояла в ногах).</li>
+            <li class="flex items-center gap-1.5 text-kitty-600">✔ Бери контейнеры, которые я для тебя расписал — никакого офисного сладкого фастфуда.</li>
+            <li class="flex items-center gap-1.5 text-kitty-600">✔ Ужинай легко, чтобы ложиться спать налегке и просыпаться без опухшего лица.</li>
+          </ul>
+        </div>
+
+        <div class="bg-white/80 p-4 rounded-2xl border-2 border-pink-100 shadow-sm space-y-2">
+          <div class="flex items-center gap-2 text-emerald-600 font-black">
+            <span class="p-1.5 bg-emerald-100 rounded-lg">🌸</span> 3 Дня отдыха (Твои тренировки и сон)
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Вот здесь твоё золотое время: ставим 3 силовые тренировки именно в эти дни, когда ты можешь выспаться, спокойно поесть и выложиться на все 100%!
+          </p>
+          <ul class="text-xs space-y-1 text-slate-700 font-medium">
+            <li class="flex items-center gap-1.5 text-emerald-600">✔ Спи по 8–9 часов — именно во сне гормон роста строит твои ягодичные и спину.</li>
+            <li class="flex items-center gap-1.5 text-emerald-600">✔ Прогулки на свежем воздухе: лимфа обожает обычную ходьбу.</li>
+            <li class="flex items-center gap-1.5 text-emerald-600">✔ В дни тренировок кушай углеводы смело — они пойдут строго в мышцы!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUTRITION PLAN (TABBED ACCORDING TO CURRENT DAY TYPE) -->
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <h3 class="font-kitty text-2xl text-kitty-600 flex items-center gap-2">
+            <span>🍓</span> Рацион Питания для Ани
+          </h3>
+          <p id="plan-mode-label" class="text-xs font-semibold text-slate-500">
+            Режим: <span class="text-kitty-500 font-bold">12-часовая рабочая смена (Борьба с отёками + сытость)</span>
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-bold text-kitty-500">
+          <span class="flex h-2.5 w-2.5 rounded-full bg-kitty-500 animate-ping"></span>
+          Граммовки взвешивать в сухом/сыром виде!
+        </div>
+      </div>
+
+      <!-- Meal Cards Container (populated by JS) -->
+      <div id="meals-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- JS renders meal cards here -->
+      </div>
+    </section>
+
+    <!-- ANTI-WATER RETENTION PROTOCOL (УБИРАЕМ ЗАЛИТОСТЬ) -->
+    <section class="glass-card rounded-3xl p-6 sm:p-8 shadow-kawaii relative overflow-hidden border-2 border-rose-200">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-2xl bg-kitty-500 text-white flex items-center justify-center font-bold text-xl shadow-md">
+          💧
+        </div>
+        <div>
+          <h3 class="text-xl font-black text-slate-800 font-cute">Протокол «Anti-Залитость» для сидячей работы</h3>
+          <p class="text-xs text-kitty-500 font-bold">Почему Аня отекает на 12-часовой смене и как сделать тело точёным:</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+        <div class="bg-rose-50/70 p-4 rounded-2xl border border-rose-100 space-y-2">
+          <div class="font-bold text-rose-700 text-sm flex items-center gap-1.5">
+            <span>🥒</span> Баланс Калия и Натрия
+          </div>
+          <p class="text-slate-600">
+            Залитость — это не жир, а внеклеточная вода! Ограничь скрытую соль (соусы, чипсы, копчености). Добавь в рацион <strong>калий</strong>: огурцы, шпинат, руккола, кабачки, бананы, курага, картофель запеченный. Калий вытесняет натрий наружу.
+          </p>
+        </div>
+
+        <div class="bg-rose-50/70 p-4 rounded-2xl border border-rose-100 space-y-2">
+          <div class="font-bold text-rose-700 text-sm flex items-center gap-1.5">
+            <span>🚰</span> Парадокс Воды (2.5 Литра)
+          </div>
+          <p class="text-slate-600">
+            Когда Аня пьет мало воды в офисе, организм пугается и <strong>запасает каждую каплю</strong>. При росте 180 см норма — <strong>2.2–2.6 л чистой воды</strong> в день! Пей равномерно до 19:30, а перед сном не пей литрами.
+          </p>
+        </div>
+
+        <div class="bg-rose-50/70 p-4 rounded-2xl border border-rose-100 space-y-2">
+          <div class="font-bold text-rose-700 text-sm flex items-center gap-1.5">
+            <span>🦵</span> Помпа для вен и лимфы
+          </div>
+          <p class="text-slate-600">
+            В сидячем положении кровь застаивается в ногах. Каждые 60 минут: <strong>20 подъемов на носки</strong> прямо сидя или стоя + вращение стопами. Вечером дома: полежать 10 минут, закинув ноги на стену (угол 90°).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TOOLS: WATER TRACKER & GROCERY BASKET -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- Interactive Water Tracker (Cute Kitty Style) -->
+      <div class="lg:col-span-5 glass-card rounded-3xl p-6 shadow-kawaii flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="font-kitty text-xl text-kitty-600 flex items-center gap-2">
+              <span>💧</span> Водный Дренаж
+            </h4>
+            <span id="water-count-text" class="text-xs font-bold bg-kitty-100 text-kitty-600 px-2.5 py-1 rounded-full border border-kitty-200">
+              0 / 10 стаканов
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 mb-4">
+            Отмечай выпитые стаканы (по 250 мл), чтобы лимфа работала и смывала отёки!
+          </p>
+
+          <!-- Glass Icons Grid -->
+          <div class="grid grid-cols-5 gap-2.5 mb-6" id="water-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button onclick="addWater()" class="flex-1 bg-kitty-500 hover:bg-kitty-600 text-white font-bold py-2.5 px-4 rounded-xl shadow-md transition transform active:scale-95 text-xs flex items-center justify-center gap-1.5">
+            <span>🥤</span> Выпить стакан
+          </button>
+          <button onclick="resetWater()" class="bg-rose-100 hover:bg-rose-200 text-rose-600 font-bold py-2.5 px-3 rounded-xl transition text-xs">
+            Сброс
+          </button>
+        </div>
+      </div>
+
+      <!-- Grocery Basket for Anya -->
+      <div class="lg:col-span-7 glass-card rounded-3xl p-6 shadow-kawaii space-y-4">
+        <div class="flex items-center justify-between">
+          <h4 class="font-kitty text-xl text-kitty-600 flex items-center gap-2">
+            <span>🛒</span> Корзина в супермаркет
+          </h4>
+          <span class="text-xs text-pink-500 font-semibold">Список для закупки на 3-4 дня вперед</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div class="bg-white/80 p-3 rounded-xl border border-pink-100">
+            <div class="font-bold text-kitty-600 mb-2 flex items-center gap-1">🥩 Белки (Мышцы)</div>
+            <ul class="space-y-1 text-slate-600">
+              <li>• Куриное филе / Индейка</li>
+              <li>• Филе белой рыбы / Лосось</li>
+              <li>• Яйца С0 (1-2 дес.)</li>
+              <li>• Творог 2-5% (пачки)</li>
+              <li>• Греческий йогурт Teos 2%</li>
+            </ul>
+          </div>
+
+          <div class="bg-white/80 p-3 rounded-xl border border-pink-100">
+            <div class="font-bold text-kitty-600 mb-2 flex items-center gap-1">🌾 Углеводы & Клетчатка</div>
+            <ul class="space-y-1 text-slate-600">
+              <li>• Овсяные хлопья (долговарка)</li>
+              <li>• Гречневая крупа / Киноа</li>
+              <li>• Рис Басмати / Бурый</li>
+              <li>• Макароны из тв. сортов</li>
+              <li>• Ягоды свежие/заморозка</li>
+            </ul>
+          </div>
+
+          <div class="bg-white/80 p-3 rounded-xl border border-pink-100">
+            <div class="font-bold text-kitty-600 mb-2 flex items-center gap-1">🥑 Жиры & Дренаж</div>
+            <ul class="space-y-1 text-slate-600">
+              <li>• Авокадо Хасс</li>
+              <li>• Оливковое масло Extra Virgin</li>
+              <li>• Огурцы, сельдерей, руккола</li>
+              <li>• Миндаль / грецкие орехи</li>
+              <li>• Зеленый чай с жасмином</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="p-3 bg-pink-50 rounded-xl border border-pink-200 flex items-center justify-between text-xs">
+          <span class="text-slate-600">💡 Лайфхак для смены 12ч: <strong>готовим контейнеры в 3-й выходной день на 3 смены вперед!</strong></span>
+          <button onclick="copyGroceryList()" class="ml-2 px-3 py-1.5 bg-kitty-500 hover:bg-kitty-600 text-white rounded-lg font-bold shadow-sm flex items-center gap-1">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Скопировать
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VITAMINS & SUPPLEMENTS PROTOCOL FOR RECOMP & ANTI-EDEMA -->
+    <section class="glass-card rounded-3xl p-6 sm:p-8 shadow-kawaii space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-kitty-100 pb-4">
+        <div>
+          <h3 class="font-kitty text-2xl text-kitty-600 flex items-center gap-2">
+            <span>💊</span> Витамины и добавки, которые я для тебя подобрал
+          </h3>
+          <p class="text-xs text-slate-500 mt-0.5">Всё для борьбы с отёками, бодрости при 12-часовом графике и роста рельефа</p>
+        </div>
+        <span class="text-xs bg-kitty-100 text-kitty-600 font-bold px-3 py-1.5 rounded-full border border-kitty-200 self-start sm:self-auto">
+          Качественный стек 🎀
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+        <!-- Supplement 1: Magnesium -->
+        <div class="bg-white/85 p-4 rounded-2xl border-2 border-kitty-100 hover:border-kitty-300 transition-all space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>🌙</span> Магний (Цитрат или Глицинат)
+            </span>
+            <span class="text-xs bg-pink-100 text-kitty-600 font-bold px-2 py-0.5 rounded-lg">Вечер</span>
+          </div>
+          <p class="text-kitty-500 font-bold text-[11px]">400 мг за 40 минут до сна</p>
+          <p class="text-slate-600 leading-relaxed">
+            <strong>Зачем Ане:</strong> Снимает гипертонус мышц после 12 часов сидения, успокаивает нервную систему, а форма цитрата ещё и мягко выводит застоявшуюся межклеточную жидкость. Спишь как младенец!
+          </p>
+        </div>
+
+        <!-- Supplement 2: Potassium & Electrolytes -->
+        <div class="bg-white/85 p-4 rounded-2xl border-2 border-kitty-100 hover:border-kitty-300 transition-all space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>💧</span> Калий + Электролиты
+            </span>
+            <span class="text-xs bg-pink-100 text-kitty-600 font-bold px-2 py-0.5 rounded-lg">С едой</span>
+          </div>
+          <p class="text-kitty-500 font-bold text-[11px]">В составе витаминов или минеральной воды</p>
+          <p class="text-slate-600 leading-relaxed">
+            <strong>Зачем Ане:</strong> Главный антагонист натрия (соли). Когда ты сидишь, натрий удерживает воду в бедрах и икрах. Калий открывает клеточные каналы и сдувает весь отёк.
+          </p>
+        </div>
+
+        <!-- Supplement 3: Omega-3 -->
+        <div class="bg-white/85 p-4 rounded-2xl border-2 border-kitty-100 hover:border-kitty-300 transition-all space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>🐟</span> Омега-3 (ПНЖК)
+            </span>
+            <span class="text-xs bg-pink-100 text-kitty-600 font-bold px-2 py-0.5 rounded-lg">Утром</span>
+          </div>
+          <p class="text-kitty-500 font-bold text-[11px]">1000–1500 мг EPA/DHA после завтрака</p>
+          <p class="text-slate-600 leading-relaxed">
+            <strong>Зачем Ане:</strong> Снижает общее системное воспаление, повышает чувствительность мышц к белку, делает кожу увлажненной и упругой без сухости.
+          </p>
+        </div>
+
+        <!-- Supplement 4: Vitamin D3 + K2 -->
+        <div class="bg-white/85 p-4 rounded-2xl border-2 border-kitty-100 hover:border-kitty-300 transition-all space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>☀️</span> Витамин D3 + K2
+            </span>
+            <span class="text-xs bg-pink-100 text-kitty-600 font-bold px-2 py-0.5 rounded-lg">Утром</span>
+          </div>
+          <p class="text-kitty-500 font-bold text-[11px]">2000–4000 ME с жирным завтраком</p>
+          <p class="text-slate-600 leading-relaxed">
+            <strong>Зачем Ане:</strong> При 12-часовой работе в помещении солнце не попадает на кожу. D3 критически важен для плотности костей при твоем росте 180 см, синтеза мышечных волокон и хорошего настроения!
+          </p>
+        </div>
+
+        <!-- Supplement 5: Whey Isolate / Protein -->
+        <div class="bg-white/85 p-4 rounded-2xl border-2 border-kitty-100 hover:border-kitty-300 transition-all space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>🍓</span> Сывороточный Изолят
+            </span>
+            <span class="text-xs bg-pink-100 text-kitty-600 font-bold px-2 py-0.5 rounded-lg">Перекус</span>
+          </div>
+          <p class="text-kitty-500 font-bold text-[11px]">1 мерная ложка (25 г белка) по надобности</p>
+          <p class="text-slate-600 leading-relaxed">
+            <strong>Зачем Ане:</strong> Твой рост 180 см, а значит нужно набирать ~140 г белка в день. Если на работе некогда жевать курицу, порция вкусного коктейля спасет мышцы от разрушения.
+          </p>
+        </div>
+
+        <!-- Supplement 6: B-Complex & Collagen -->
+        <div class="bg-white/85 p-4 rounded-2xl border-2 border-kitty-100 hover:border-kitty-300 transition-all space-y-2 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>✨</span> Витамины группы B + Вит. C
+            </span>
+            <span class="text-xs bg-pink-100 text-kitty-600 font-bold px-2 py-0.5 rounded-lg">Днём</span>
+          </div>
+          <p class="text-kitty-500 font-bold text-[11px]">1 капсула в первой половине дня</p>
+          <p class="text-slate-600 leading-relaxed">
+            <strong>Зачем Ане:</strong> Витамины группы B дают чистую клеточную энергию без кофейных качелей, а витамин С укрепляет сосудистую стенку, чтобы вены ног не отекали к вечеру.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTIVATIONAL FOOTER -->
+    <footer class="text-center py-6 border-t border-pink-200 space-y-2">
+      <div class="flex justify-center items-center gap-2 text-2xl">
+        <span class="animate-bounce">🎀</span>
+        <span class="animate-pulse">⚡</span>
+        <span class="animate-bounce" style="animation-delay: 0.3s">🍓</span>
+      </div>
+      <p class="font-kitty text-xl text-kitty-600">Аня, работаем на результат — ты будешь в восторге от формы!</p>
+      <p class="text-xs text-slate-500 max-w-md mx-auto">
+        Я упаковал этот сайт специально под твой ритм, чтобы дисциплина давалась легко и в удовольствие. Соблюдай баланс воды, добирай белок, а форму мы сделаем топовой! Твой коуч и друг 🎀✨
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Interactive Modal / Notification Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-white border-2 border-kitty-400 px-5 py-3 rounded-2xl shadow-kawaii-lg flex items-center gap-3">
+    <span class="text-2xl" id="toast-icon">🎀</span>
+    <span class="text-xs font-bold text-slate-800" id="toast-text">Сообщение</span>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // State
+    let currentMode = 'work'; // 'work', 'train', 'rest'
+    let waterGlasses = 0;
+    const maxWaterGlasses = 10;
+
+    // Macro specifications for Anya (180 cm, 70 kg, Recomposition)
+    const nutritionData = {
+      work: {
+        title: "12-часовая рабочая смена (Умеренные угли, высокая сытость)",
+        desc: "Поддерживаем энергию без скачков сахара, чтобы не тянуло спать в офисе и не копилась вода.",
+        calories: 1950,
+        protein: 135, // ~1.95 г/кг
+        fat: 65,      // ~0.9 г/кг качественных жиров
+        carbs: 205,   // энергия на 12 часов
+        waterLiters: "2.4 - 2.6",
+        meals: [
+          {
+            time: "07:00",
+            name: "Завтрак дома (Запуск метаболизма & Дренаж)",
+            items: [
+              "Овсянка долгой варки (50 г сухой) с корицей и ягодами (70 г)",
+              "Яичница из 2 яиц + 1 белок с помидорами черри и шпинатом",
+              "Зеленый чай или кофе без сахара (можно с миндальным молоком)"
+            ],
+            macros: "Белки: 28г | Жиры: 16г | Углеводы: 45г • ~430 ккал"
+          },
+          {
+            time: "11:30",
+            name: "Обед в офисе (Контейнер 1 — Сытость и фокус)",
+            items: [
+              "Запеченное филе индейки или курицы (130 г)",
+              "Гречневая крупа или бурый рис (50 г сухой вес)",
+              "Большой салат: огурец, пекинская капуста, сельдерей, 1 ч.л. оливкового масла"
+            ],
+            macros: "Белки: 38г | Жиры: 14г | Углеводы: 42г • ~450 ккал"
+          },
+          {
+            time: "15:30",
+            name: "Полдник в офисе (Анти-дремота и белковый барьер)",
+            items: [
+              "Творог 2-5% (150 г) или Греческий йогурт Teos (200 г)",
+              "Горсть ягод или 1 зеленое яблоко / киви",
+              "15 г миндаля или грецких орехов (полезные жиры для кожи)"
+            ],
+            macros: "Белки: 26г | Жиры: 12г | Углеводы: 25г • ~310 ккал"
+          },
+          {
+            time: "19:30",
+            name: "Ужин (Контейнер 2 или сразу дома — Лёгкий, без отёков)",
+            items: [
+              "Филе белой рыбы (минтай, треска, хек) или креветки (160 г)",
+              "Тушеные кабачки с брокколи и стручковой фасолью (200 г)",
+              "Половинка авокадо (50 г) для гормонального баланса"
+            ],
+            macros: "Белки: 35г | Жиры: 15г | Углеводы: 16г • ~340 ккал"
+          },
+          {
+            time: "21:30",
+            name: "Перед сном (При чувстве голода)",
+            items: [
+              "Травяной ромашковый или мятный чай (снимает спазм сосудов)",
+              "Опционально: 1 вареный яичный белок или 100 мл кефира 1%"
+            ],
+            macros: "Белки: 8г | Жиры: 1г | Углеводы: 4г • ~60 ккал"
+          }
+        ]
+      },
+
+      train: {
+        title: "День силовой тренировки (Мышечный анаболизм & Тонус)",
+        desc: "Повышенные углеводы направляются прямиком в гликоген мышц, делая попу и плечи округлыми!",
+        calories: 2150,
+        protein: 140, // 2 г/кг
+        fat: 60,
+        carbs: 260,   // углеводная загрузка под штангу
+        waterLiters: "2.8 - 3.0",
+        meals: [
+          {
+            time: "09:00",
+            name: "Завтрак чемпионки (Запас энергии)",
+            items: [
+              "Овсяноблин (50 г овсянки + 2 яйца + 30 мл молока)",
+              "Начинка: 30 г слабосоленого лосося + творожный сыр (20 г) + зелень",
+              "1 банан или горсть черники"
+            ],
+            macros: "Белки: 30г | Жиры: 18г | Углеводы: 58г • ~510 ккал"
+          },
+          {
+            time: "12:30",
+            name: "Предтренировочный приём (за 1.5–2 часа до зала)",
+            items: [
+              "Куриное филе на гриле (130 г)",
+              "Паста из твердых сортов пшеницы или рис басмати (65 г сухого веса)",
+              "Томатный соус с базиликом + огурец"
+            ],
+            macros: "Белки: 38г | Жиры: 8г | Углеводы: 56г • ~450 ккал"
+          },
+          {
+            time: "15:00 - 16:15",
+            name: "🏋️‍♀️ ТРЕНИРОВКА В ЗАЛЕ",
+            items: [
+              "Во время тренировки: 700-800 мл воды мелкими глотками",
+              "После тренировки (в течение 30 мин): Банан или порция изолята протеина"
+            ],
+            macros: "Белки: 15г | Жиры: 1г | Углеводы: 28г • ~180 ккал"
+          },
+          {
+            time: "17:30",
+            name: "Полноценный обед после зала (Закрываем анаболическое окно)",
+            items: [
+              "Стейк из лосося или говяжья вырезка (130 г)",
+              "Печеный картофель в кожуре (180 г — супер-источник калия против отёка!)",
+              "Большая миска салата из свежих овощей с лимонным соком"
+            ],
+            macros: "Белки: 35г | Жиры: 16г | Углеводы: 40г • ~440 ккал"
+          },
+          {
+            time: "20:30",
+            name: "Белковый ужин (Восстановление волокон)",
+            items: [
+              "Творог 5% (160 г) с ложкой греческого йогурта",
+              "Половинка зеленого яблока с корицей",
+              "Травяной чай"
+            ],
+            macros: "Белки: 28г | Жиры: 9г | Углеводы: 16г • ~260 ккал"
+          }
+        ]
+      },
+
+      rest: {
+        title: "Выходной день без тренировок (Дренаж, прогулки, отдых)",
+        desc: "Восстановление ЦНС, снижаем углеводы, поднимаем клетчатку для очищения кишечника.",
+        calories: 1850,
+        protein: 135,
+        fat: 70,      // упор на полезные липиды для сияния кожи и волос
+        carbs: 170,   // урезаем быстрые сахара
+        waterLiters: "2.3 - 2.5",
+        meals: [
+          {
+            time: "10:00",
+            name: "Поздний бранч выходного дня",
+            items: [
+              "Скрембл из 3 яиц (или 2 целых + 1 белок) на оливковом масле",
+              "Цельнозерновой тост с 1/2 спелого авокадо и семенами кунжута",
+              "Свежий огурец, руккола, помидорки"
+            ],
+            macros: "Белки: 26г | Жиры: 24г | Углеводы: 26г • ~430 ккал"
+          },
+          {
+            time: "14:00",
+            name: "Обед (Насыщение без тяжести)",
+            items: [
+              "Котлеты из филе индейки на пару или запеченные (140 г)",
+              "Киноа или булгур (45 г сухой)",
+              "Овощное рагу: кабачок, баклажан, сладкий перец, зелень"
+            ],
+            macros: "Белки: 36г | Жиры: 14г | Углеводы: 38г • ~420 ккал"
+          },
+          {
+            time: "17:30",
+            name: "Уютный перекус",
+            items: [
+              "Протеиновый пудинг или греческий йогурт (180 г)",
+              "Горсть свежей малины/клубники",
+              "20 г кешью или миндаля"
+            ],
+            macros: "Белки: 22г | Жиры: 12г | Углеводы: 20г • ~280 ккал"
+          },
+          {
+            time: "20:00",
+            name: "Ужин Anti-Edema (Слив лишней жидкости)",
+            items: [
+              "Кальмары гриль или белая рыба (160 г)",
+              "Теплый салат из спаржи, стручковой фасоли и брокколи",
+              "1 ч.л. льняного или оливкового масла"
+            ],
+            macros: "Белки: 34г | Жиры: 10г | Углеводы: 14г • ~290 ккал"
+          }
+        ]
+      }
+    };
+
+    // Render Macro Counters
+    function renderMacros() {
+      const data = nutritionData[currentMode];
+      const container = document.getElementById('macros-container');
+      
+      const cards = [
+        { label: 'Калории', value: `${data.calories}`, unit: 'ккал', icon: '🔥', color: 'from-pink-500 to-rose-400', sub: 'Дефицит для рекомпа' },
+        { label: 'Белки', value: `${data.protein}`, unit: 'г (1.9г/кг)', icon: '🍗', color: 'from-rose-500 to-pink-500', sub: 'Защита и рост мышц' },
+        { label: 'Жиры', value: `${data.fat}`, unit: 'г (0.9г/кг)', icon: '🥑', color: 'from-amber-400 to-pink-400', sub: 'Гормоны и женственность' },
+        { label: 'Углеводы', value: `${data.carbs}`, unit: 'г (сложные)', icon: '🌾', color: 'from-pink-400 to-purple-400', sub: 'Топливо без залитости' },
+      ];
+
+      container.innerHTML = cards.map(c => `
+        <div class="glass-card rounded-2xl p-4 shadow-sm border border-kitty-200 relative overflow-hidden group hover:shadow-kawaii transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500">${c.label}</span>
+            <span class="text-xl">${c.icon}</span>
+          </div>
+          <div class="flex items-baseline gap-1">
+            <span class="text-2xl sm:text-3xl font-black text-kitty-600">${c.value}</span>
+            <span class="text-xs font-bold text-slate-500">${c.unit}</span>
+          </div>
+          <p class="text-[11px] text-pink-500 font-semibold mt-1">${c.sub}</p>
+        </div>
+      `).join('');
+    }
+
+    // Render Meals
+    function renderMeals() {
+      const data = nutritionData[currentMode];
+      const container = document.getElementById('meals-list');
+      const label = document.getElementById('plan-mode-label');
+
+      label.innerHTML = `Режим: <span class="text-kitty-600 font-black">${data.title}</span>`;
+
+      container.innerHTML = data.meals.map((meal, index) => `
+        <div class="bg-white/85 backdrop-blur-sm rounded-2xl p-5 border-2 border-kitty-100 shadow-sm hover:border-kitty-300 transition-all space-y-3">
+          <div class="flex items-center justify-between border-b border-kitty-100 pb-2.5">
+            <div class="flex items-center gap-2.5">
+              <span class="px-2.5 py-1 bg-kitty-500 text-white font-extrabold text-xs rounded-xl shadow-xs">
+                ${meal.time}
+              </span>
+              <h4 class="font-bold text-sm text-slate-800">${meal.name}</h4>
+            </div>
+            <span class="text-xs">🎀</span>
+          </div>
+
+          <ul class="space-y-1.5 text-xs text-slate-600">
+            ${meal.items.map(item => `
+              <li class="flex items-start gap-2">
+                <span class="text-kitty-400 mt-0.5">•</span>
+                <span>${item}</span>
+              </li>
+            `).join('')}
+          </ul>
+
+          <div class="pt-2 border-t border-dashed border-pink-100 text-[11px] font-bold text-kitty-600 bg-pink-50/60 px-3 py-1.5 rounded-xl flex items-center justify-between">
+            <span>📊 КБЖУ:</span>
+            <span>${meal.macros}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Switch Tab Mode
+    function switchDayType(mode) {
+      currentMode = mode;
+      
+      // Update Buttons
+      const buttons = {
+        work: document.getElementById('btn-work'),
+        train: document.getElementById('btn-train'),
+        rest: document.getElementById('btn-rest')
+      };
+
+      Object.keys(buttons).forEach(key => {
+        if (key === mode) {
+          buttons[key].className = "px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold rounded-full transition-all duration-300 shadow-sm bg-kitty-500 text-white flex items-center gap-1.5";
+        } else {
+          buttons[key].className = "px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold rounded-full transition-all duration-300 text-kitty-600 hover:bg-white/70 flex items-center gap-1.5";
+        }
+      });
+
+      renderMacros();
+      renderMeals();
+      showToast('🎀 Меню обновлено!', `Переключено на: ${nutritionData[mode].title.slice(0, 28)}...`);
+    }
+
+    // Water Tracker Logic
+    function renderWater() {
+      const grid = document.getElementById('water-grid');
+      const text = document.getElementById('water-count-text');
+      text.innerText = `${waterGlasses} / ${maxWaterGlasses} стаканов (${(waterGlasses * 0.25).toFixed(2)} л)`;
+
+      grid.innerHTML = '';
+      for (let i = 0; i < maxWaterGlasses; i++) {
+        const isFull = i < waterGlasses;
+        const glass = document.createElement('button');
+        glass.onclick = () => toggleWaterIndex(i);
+        glass.className = `h-11 rounded-xl flex items-center justify-center text-lg transition-all duration-300 transform active:scale-90 ${
+          isFull 
+            ? 'bg-gradient-to-t from-sky-400 to-sky-200 border-2 border-sky-400 shadow-sm text-white scale-105' 
+            : 'bg-white border-2 border-pink-100 text-slate-300 hover:border-pink-300'
+        }`;
+        glass.innerHTML = isFull ? '🥛' : '🥤';
+        glass.title = `Стакан ${i + 1} (250 мл)`;
+        grid.appendChild(glass);
+      }
+    }
+
+    function addWater() {
+      if (waterGlasses < maxWaterGlasses) {
+        waterGlasses++;
+        renderWater();
+        showToast('💧 Умница, Аня!', `Выпито: ${(waterGlasses * 0.25).toFixed(2)} л чистой воды. Отёки уходят!`);
+      } else {
+        showToast('🎉 Норма выполнена!', 'Ты выпила 2.5 литра! Лимфа очищена, тело в тонусе.');
+      }
+    }
+
+    function toggleWaterIndex(idx) {
+      if (idx + 1 === waterGlasses) {
+        waterGlasses--;
+      } else {
+        waterGlasses = idx + 1;
+      }
+      renderWater();
+    }
+
+    function resetWater() {
+      waterGlasses = 0;
+      renderWater();
+      showToast('🔄 Сброс', 'Счётчик воды сброшен на ноль');
+    }
+
+    // Copy Grocery List
+    function copyGroceryList() {
+      const text = `🛍️ Продуктовая корзина для Ани (Рекомпозиция):\n\n` +
+        `БЕЛКИ:\n- Филе курицы / индейки\n- Рыба (минтай, треска, хек или лосось)\n- Яйца С0\n- Творог 2-5% + Греческий йогурт Teos\n\n` +
+        `УГЛЕВОДЫ:\n- Овсянка долгой варки\n- Гречка, киноа, рис басмати\n- Макароны тв. сортов\n- Замороженные или свежие ягоды, яблоки, бананы\n\n` +
+        `ЖИРЫ И ОВОЩИ (ДРЕНАЖ):\n- Авокадо\n- Оливковое масло Extra Virgin\n- Огурцы, сельдерей, кабачки, шпинат, руккола\n- Орехи (миндаль/грецкий)\n- Зеленый чай с жасмином / мята`;
+
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('📋 Скопировано!', 'Список продуктов скопирован в буфер обмена для заметок.');
+      } catch (err) {
+        console.error(err);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // Celebrate Hello Kitty Easter Egg
+    function celebrateKitty() {
+      showToast('🎀 Мяу! Привет, Аня!', 'Ты обязательно добьешься идеальной рельефной формы!');
+    }
+
+    // Toast Notification helper
+    let toastTimeout;
+    function showToast(title, desc) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      
+      toastText.innerHTML = `<strong>${title}</strong><br><span class="text-[10px] text-slate-500 font-normal">${desc}</span>`;
+      
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    // Initialize on window load
+    window.onload = function() {
+      renderMacros();
+      renderMeals();
+      renderWater();
+      lucide.createIcons();
+    };
+  </script>
+</body>
+</html>
